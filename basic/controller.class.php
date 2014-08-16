@@ -1,4 +1,4 @@
-<?
+<?php
 namespace Root\Basic;
 
 class Controller {
@@ -59,4 +59,4 @@ class Controller {
 	}
 }
 
-?>
+

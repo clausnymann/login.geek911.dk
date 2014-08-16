@@ -1,4 +1,4 @@
-<?
+<?php
 namespace Root\Basic;
 
 class View {
@@ -20,4 +20,3 @@ class View {
 		return ob_get_clean();
 	} 
 }
-?>

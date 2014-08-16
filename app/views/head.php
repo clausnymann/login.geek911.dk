@@ -4,7 +4,9 @@
 <meta name="viewport"  content="width=device-width,initial-scale=1" />
 <!-- JQUERY + UI -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
-<script>window.jQuery || document.write('<script src="<? echo APP_DIR; ?>views/_js/jquery/jquery-1.8.2.min.js"><\/script>')</script>
-<? echo $jsfiles; ?>
-<? echo $cssfiles; ?>
-<title><? echo $pageTitle; ?></title>
+<script>window.jQuery || document.write('<script src="<?php echo APP_DIR; ?>views/_js/jquery/jquery-1.8.2.min.js"><\/script>')</script>
+<?php 
+    echo $jsfiles.
+         $cssfiles;
+?>
+<title><?php echo $pageTitle; ?></title>

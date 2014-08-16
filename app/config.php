@@ -1,4 +1,4 @@
-<? 
+<?php 
 $config['base_url'] = 'http://login.geek911.dk/'; // Base URL including trailing slash (e.g. http://localhost/)
 
 $config['default_controller'] = 'HomeController'; // Default controller to load
@@ -28,4 +28,4 @@ $config['mail_port'] = 26; // Mail
 $config['mail_username'] = "support@login.dk"; // Mail
 $config['mail_password'] = "Nummer12"; // Mail
 */
-?>
+

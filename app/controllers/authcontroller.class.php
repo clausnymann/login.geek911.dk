@@ -1,4 +1,4 @@
-<?
+<?php
 namespace Root\App\Controllers;
 use Root\Basic\View;
 use Root\App\AppController;

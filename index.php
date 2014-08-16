@@ -1,12 +1,7 @@
 <?php
 namespace Root;
 
-
-
 session_start(); 
-
-
-// Define base URL
 
 define("VERSION", 1); // Version to reset cached files
 define('ROOT_DIR', realpath(dirname(__FILE__)));
@@ -29,7 +24,14 @@ function loadClasses($className) {
 	//echo 'Namespace:'.$namespace.'<br>';
 	//echo 'classFile:'.$classfile.'<br>';
 	
-	$dirs_to_autoload = array(str_tolower(str_replace('Root','',$namespace))), 'basic', 'app', 'app/controllers', 'app/models', 'app/views');
+    $dirs_to_autoload = array(
+        strtolower(str_replace('Root', '', $namespace)), 
+        'basic', 
+        'app', 
+        'app/controllers', 
+        'app/models', 
+        'app/views'
+    );
    
 	foreach ($dirs_to_autoload as $dir){
 		//echo ROOT_DIR.DS.$dir.DS.$classfile.'.php<br>';
@@ -50,8 +52,6 @@ use Root\App\AppController;
 
 require(ROOT_DIR .'/basic/findappparts.php'); // function to split up urls to find app parts/classes
 
-
-
 //error_reporting(E_ALL);
 //error_reporting( error_reporting() & ~E_NOTICE );
 $appParts = findAppParts();
@@ -65,23 +65,21 @@ if(isset($_REQUEST['ajax'])){
 ?>
 <!DOCTYPE html>
 <head>
-  <? echo $appParts->head; ?>
+  <?php echo $appParts->head; ?>
 </head>
 <body>
-<? 
-  	$info  = '<strong>MVC info:</strong><br />';
-	$info  .= 'AppController extended by: '.$appParts->controllerName.'<br>';
-	if(!empty($appParts->actionName)) $info .= 'ActionName: '.$appParts->actionName.'<br>';
-	if(!empty($appParts->actionParams)) $info .= 'ActionParams: '.implode(', ', $appParts->actionParams).'<br>';	
-	if(!empty($appParts->mvc_error)) $info .= 'Error: '.$appParts->mvc_error;
-	echo '<div class="mvc_info">'.$info.'</div>';	
-  ?>
-  <? echo $appParts->header; ?>
-  <? echo $appParts->content; ?>
-  <? echo $appParts->footer; ?>
-  
-
-  
-
+    <?php 
+        $info  = '<strong>MVC info:</strong><br />';
+        $info  .= 'AppController extended by: '.$appParts->controllerName.'<br>';
+        
+        if(!empty($appParts->actionName)) $info .= 'ActionName: '.$appParts->actionName.'<br>';
+        if(!empty($appParts->actionParams)) $info .= 'ActionParams: '.implode(', ', $appParts->actionParams).'<br>';	
+        if(!empty($appParts->mvc_error)) $info .= 'Error: '.$appParts->mvc_error;
+        
+        echo '<div class="mvc_info">'.$info.'</div>'.
+              $appParts->header.'<br />'.
+              $appParts->content.'<br />'.             
+              $appParts->footer.'<br />';
+    ?>
 </body>
 </html>
