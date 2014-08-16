@@ -1,0 +1,1 @@
+Din konto er nu aktiveret og du kan logge ind <a href="/auth/login" class="loginBtn">her</a>
